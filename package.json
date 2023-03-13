@@ -1,0 +1,11 @@
+{
+  "name": "photo-management-app",
+  "private": true,
+  "dependencies": {
+    "jquery": "^3.5.1",
+    "normalize.css": "^8.0.1"
+  },
+  "version": "0.1.0",
+  "scripts": {},
+  "devDependencies": {}
+}
