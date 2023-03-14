@@ -1,0 +1,12 @@
+= render partial: "share/logout"
+%h1 写真アップロード
+= form_for @image, html: { multipart: true } do |f|
+  = render partial: "share/error_messages"
+  .form-group
+    = f.label :title
+    = f.text_field :title, class: 'form-control'
+  .form-group
+    = f.label :image_file
+    = f.file_field :image_file, class: 'form-control'
+  = f.submit "アップロード", class: 'btn btn-primary'
+  = link_to 'キャンセル', images_path, class: 'btn btn-secondary'
