@@ -1,0 +1,9 @@
+= render partial: "share/logout"
+= link_to '写真アップロード', new_image_path, class: 'btn btn-primary'
+
+%h1 写真⼀覧
+.image-list
+  - @images.each do |image|
+    .image-item
+      .image-title= image.title
+      = image_tag image.image_file, class: 'img-thumbnail'
