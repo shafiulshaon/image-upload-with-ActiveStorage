@@ -21,6 +21,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session.delete(:user_id)
+    session.delete(:access_token)
     redirect_to login_path
   end
 
