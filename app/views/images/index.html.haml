@@ -11,3 +11,5 @@
     .image-item
       .image-title= image.title
       = image_tag image.image_file, class: 'img-thumbnail'
+      - if session[:access_token].present?
+        = link_to 'ツイートする', oauth_tweet_path({id: image.id}), class: 'btn btn-primary'

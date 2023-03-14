@@ -38,6 +38,23 @@ class OauthController < ApplicationController
   end
 
   def tweet
+    image = current_user.images.find(params[:id])
+    uri = URI(oauth_uri[:tweet_uri])
+    body = {
+      text: image.title,
+      url: url_for(image.image_file)
+    }.to_json
+
+    http = Net::HTTP.new(uri.host, uri.port)
+
+    request = Net::HTTP::Post.new(uri)
+    request.content_type = 'application/json'
+    request['Authorization'] = "Bearer #{session[:access_token]}"
+    request.body = body
+
+    response = http.request(request)
+
+    redirect_to images_path if response.code.to_i == 201
   end
 
 end
