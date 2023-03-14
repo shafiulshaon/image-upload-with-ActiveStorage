@@ -1,6 +1,8 @@
 class SessionsController < ApplicationController
+  skip_before_action :authorize_login
 
   def new
+    redirect_to images_path if logged_in?
   end
 
   def create
