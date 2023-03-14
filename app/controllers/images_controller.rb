@@ -5,6 +5,7 @@ class ImagesController < ApplicationController
   end
 
   def index
+    @images = current_user.images.order(id: :desc)
   end
 
   def create
