@@ -8,4 +8,8 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy', as: 'logout'
 
+  get 'oauth/connect', to: 'oauth#connect'
+  get 'oauth/callback', to: 'oauth#callback'
+  get "oauth/tweet" => "oauth/tweet"
+
 end
