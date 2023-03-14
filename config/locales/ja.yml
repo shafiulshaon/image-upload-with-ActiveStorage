@@ -1,0 +1,24 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        password: "パスワード"
+        user_id: "ユーザーID"
+      image:
+        title: "タイトル"
+        image_file: "画像ファイル"
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+              blank: "を入力してください"
+            user_id:
+              blank: "を入力してください"
+        image:
+          attributes:
+            title:
+              blank: "を入力してください"
+              too_long: "が長すぎます"
+            image_file:
+              blank: "を入力してください"
