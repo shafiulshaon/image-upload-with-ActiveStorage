@@ -8,7 +8,7 @@
 
 このアプリを実行するには、以下が必要です。
 
-- Ruby 2.7.4以上
+- Ruby 2.6.8
 - Ruby on Rails 6.1.4以上
 - SQLite 3または互換性のあるデータベース
 
@@ -26,6 +26,40 @@
 
 `bundle install`
 
+`Required ruby-2.6.8 is not installed.` というエラーが発生したら、gemfileの `ruby '2.6.8'` をコンピュータにインストールされているバージョンに変更します。
+
+その後もエラーが発生した場合は、Ruby のバージョンを変更する必要があります。まず、次のコマンドを実行して、追加のパッケージなしで RVM をインストールします。
+
+`\curl -sSL https://get.rvm.io | bash -s stable`
+
+インストールが完了したら、次のコマンドを実行して、現在のシェルセッションに RVM をロードします。
+
+`source ~/.rvm/scripts/rvm`
+
+特定の Ruby バージョンをインストールするには、「x.x.x」を目的のバージョン番号に置き換えます。
+
+`rvm install ruby-x.x.x`
+
+最後に、インストールした Ruby バージョンをデフォルトに設定します。
+
+`rvm use ruby-x.x.x --default`
+
+そのあと、`bundle install` コマンドを再度実行します。
+
+`You must use Bundler 2 or greater with this lockfile.` というエラーが発生したら、まず、現在のBundlerのバージョンを確認します。
+
+`bundler -v`
+
+Bundlerのバージョンが2.0.0より古い場合は、次のコマンドを実行してアップデートします。
+
+`gem install bundler`
+
+それでも問題が解決しない場合は、プロジェクトのBundler設定をアップデートする必要があります。その場合は、次のコマンドを実行します。
+
+`bundle update --bundler`
+
+そのあと、`bundle install` コマンドを再度実行します。
+
 3. データベースをセットアップします。
 
 `rails db:migrate`
@@ -34,6 +68,7 @@
 
 `rails db:seed`
 
+`rails s`
 その後、Webブラウザを開き、http://localhost:3000/ にアクセスします。
 
 ## 使い方
